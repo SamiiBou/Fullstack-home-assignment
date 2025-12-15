@@ -20,7 +20,7 @@ export function TransfersBarChartCard({ start, end }: Props) {
   console.log('Transfer Hook state:', { data, isLoading, error });
 
 
-  if (isLoading) return <div className="p-8">We are loading the data, this may take up to 5 min, please wait</div>;
+  if (isLoading) return <div className="p-8">We are loading the data (usdt volume transfers), this may take up to 5 min, please wait</div>;
   if (error) return <div className="p-8">Error: {error.message}</div>;
   if (!data) return <div className="p-8">We are loading the data, this may take up to 5 min, please wait</div>;
 

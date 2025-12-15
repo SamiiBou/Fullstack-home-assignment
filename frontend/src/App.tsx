@@ -5,6 +5,7 @@
 
 import React from "react";
 import { TransfersBarChartCard } from "./components/TransfersBarChart";
+import { TopSendersPieChartCard } from "./components/TopSendersPieChart";
 
 const START = 1763337600;
 const END = 1763424000;
@@ -12,6 +13,7 @@ const END = 1763424000;
 function App() {
   return <div>
     <TransfersBarChartCard start={START} end={END} />
+    <TopSendersPieChartCard start={START} end={END} />
   </div>;
 }
 

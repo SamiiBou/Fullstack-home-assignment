@@ -49,10 +49,24 @@ async function testgetTransferUsdtPerThirtyMinutes(){
   }
 }
 
+async function testsTopSenders() {
+  const fetcher = new fetchDataByTimeStamp();
+
+  try {
+    const topSenders = await fetcher.getTopSendersForPeriod(provider, 1763337600, 1763424000);
+    // console.log(` Fetched ${logs.length} logs`);
+    console.log(topSenders);
+  } catch (error) {
+    console.error('Error tests:', error);
+  }
+}
+
 app.listen(3001, () => {
   console.log("Node running at http://localhost:3001");
   // void testBinarySearch();
   // void testLogBlocks();
   // void testgetTransferUsdtPerThirtyMinutes();
+  // void testsTopSenders();
+
 });
 
