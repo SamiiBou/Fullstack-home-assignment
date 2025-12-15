@@ -26,8 +26,18 @@ async function testBinarySearch(){
   }
 }
 
+async function testLogBlocks(){
+  const fetcher = new fetchDataByTimeStamp();
+  try{
+    const getLogsByTimeStamp = await fetcher.getLogsByTimeStamp(provider,1763337600, 1763424000);
+  }catch(error){
+    console.error('Error tests', error);
+  }
+}
+
 app.listen(3001, () => {
   console.log("Node running at http://localhost:3001");
   // void testBinarySearch();
+  // void testLogBlocks();
 });
 
