@@ -5,6 +5,9 @@
 
 import express from 'express';
 import cors from 'cors';
+import "dotenv/config";
+import { fetchDataByTimeStamp } from './src/services/fetchDataByTimestamp';
+import { provider } from './src/config/ethereum';
 
 const app = express();
 app.use(cors());
@@ -14,4 +17,17 @@ app.get('/', (_, res) => {
   res.json({ status: 'Server is running' });
 });
 
-app.listen(3001, () => console.log('Node running at http://localhost:3001'));
+async function testBinarySearch(){
+  const fetcher = new fetchDataByTimeStamp();
+  try{
+    const blockByTimeStamp = await fetcher.getBlockByTimeStamp(provider,1763337600);
+  }catch(error){
+    console.error('Error tests', error);
+  }
+}
+
+app.listen(3001, () => {
+  console.log("Node running at http://localhost:3001");
+  // void testBinarySearch();
+});
+

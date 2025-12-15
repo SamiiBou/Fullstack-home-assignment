@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "ethers": "^6.16.0",
     "express": "^5.1.0"
   },
   "devDependencies": {
@@ -19,7 +21,7 @@
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3"
   },
-    "engines": {
+  "engines": {
     "npm": ">=10",
     "node": ">=20"
   }
