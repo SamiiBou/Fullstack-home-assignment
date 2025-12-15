@@ -8,6 +8,8 @@ import cors from 'cors';
 import "dotenv/config";
 import { fetchDataByTimeStamp } from './src/services/fetchDataByTimestamp';
 import { provider } from './src/config/ethereum';
+import apiRoutes from "./src/routes";
+
 
 const app = express();
 app.use(cors());
@@ -16,6 +18,9 @@ app.use(express.json());
 app.get('/', (_, res) => {
   res.json({ status: 'Server is running' });
 });
+
+app.use("/api", apiRoutes);
+
 
 async function testBinarySearch(){
   const fetcher = new fetchDataByTimeStamp();
@@ -35,9 +40,19 @@ async function testLogBlocks(){
   }
 }
 
+async function testgetTransferUsdtPerThirtyMinutes(){
+  const fetcher = new fetchDataByTimeStamp();
+  try{
+    const getLogsByTimeStamp = await fetcher.getTransferUsdtPerThirtyMinutes(provider,1763337600, 1763424000);
+  }catch(error){
+    console.error('Error tests', error);
+  }
+}
+
 app.listen(3001, () => {
   console.log("Node running at http://localhost:3001");
   // void testBinarySearch();
   // void testLogBlocks();
+  // void testgetTransferUsdtPerThirtyMinutes();
 });
 
